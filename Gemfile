@@ -73,3 +73,4 @@ end
 
 gem 'faker', '~> 2.23'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'devise'
