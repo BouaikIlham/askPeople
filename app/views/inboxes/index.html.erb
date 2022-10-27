@@ -4,6 +4,7 @@
 <div id="inboxes">
   <% @inboxes.each do |inbox| %>
     <%= render inbox %>
+    <%= inbox.user.email%>
     <p>
       <%= link_to "Show this inbox", inbox %>
     </p>

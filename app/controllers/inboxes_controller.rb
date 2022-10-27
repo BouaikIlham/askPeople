@@ -20,6 +20,7 @@ class InboxesController < ApplicationController
   # POST /inboxes or /inboxes.json
   def create
     @inbox = Inbox.new(inbox_params)
+    @inbox.user = current_user
 
     respond_to do |format|
       if @inbox.save
