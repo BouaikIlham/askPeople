@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+body {
+  margin: 0 auto;
+  max-width: 500px;
+  display: block;
+}
 #notice {
   background-color: green;
   color: white;
@@ -26,4 +30,15 @@
   color: white;
   border-radius: 6px;
   padding: 6px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#inboxes {
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 6px;
+  margin-bottom: 6px;
 }
