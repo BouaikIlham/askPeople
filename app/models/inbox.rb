@@ -4,5 +4,5 @@ class Inbox < ApplicationRecord
   validates :name, length: { in: 6..100 }
 
   belongs_to :user
-  has_many :messages
+  has_many :messages, dependent: :destroy
 end

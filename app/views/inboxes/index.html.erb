@@ -1,11 +1,13 @@
-
-<h1>Inboxes</h1>
-
 <div id="inboxes">
+  <h1>
+    inboxes: <%= @inboxes.count%>
+  </h1>
   <% @inboxes.each do |inbox| %>
     <h3>
       <%= link_to inbox.name , inbox%>
     </h3>
+    by: 
     <%= inbox.user.email%>
+    <%= inbox.created_at.strftime('%m/%b/%Y, %H:%M:%S')%>
   <% end %>
 </div>
