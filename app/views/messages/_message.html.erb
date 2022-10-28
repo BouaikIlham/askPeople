@@ -3,4 +3,15 @@
     <strong>Body:</strong>
     <%= message.body %>
   </p>
+
+  <p>
+    <strong>Inbox:</strong>
+    <%= link_to message.inbox.name, message.inbox  %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= message.user.email %>
+  </p>
+
 </div>
