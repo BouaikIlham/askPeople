@@ -25,10 +25,8 @@ class InboxesController < ApplicationController
     respond_to do |format|
       if @inbox.save
         format.html { redirect_to inbox_url(@inbox), notice: 'Inbox was successfully created.' }
-        format.json { render :show, status: :created, location: @inbox }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @inbox.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +36,8 @@ class InboxesController < ApplicationController
     respond_to do |format|
       if @inbox.update(inbox_params)
         format.html { redirect_to inbox_url(@inbox), notice: 'Inbox was successfully updated.' }
-        format.json { render :show, status: :ok, location: @inbox }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @inbox.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +48,6 @@ class InboxesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to inboxes_url, notice: 'Inbox was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
