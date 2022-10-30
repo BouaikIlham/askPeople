@@ -17,7 +17,7 @@ class Inboxes::MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
+    @message = @inbox.messages.find(params[:id])
     @message.destroy
     respond_to do |format|
       format.html { redirect_to @inbox, notice: 'Message was successfully destroyed.' }
