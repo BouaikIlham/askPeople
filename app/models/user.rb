@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :inboxes
   has_many :messages, through: :inboxes
+
+
+  acts_as_voter
+
 end

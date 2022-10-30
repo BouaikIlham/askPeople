@@ -9,6 +9,13 @@
     <%= link_to message.inbox.name, message.inbox  %>
   </p>
 
+  <%= button_to 'UpVote', [:upvote, message.inbox, message], method: :patch, data: {turbo: 'false'} %>
+  <%= message.votes_for.size%>
+  <%= current_user.voted_for? message %>
+  <%= message.get_upvotes.size %>
+  <%= message.get_downvotes.size %>
+
+
   <p>
     <strong>User:</strong>
     <%= message.user.email %>
