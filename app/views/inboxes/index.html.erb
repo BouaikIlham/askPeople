@@ -6,6 +6,8 @@
     <h3>
       <%= link_to inbox.name , inbox%>
     </h3>
+     Messages: <%= inbox.messages_count%>
+    <hr>
     by: 
     <%= inbox.user.email%>
     <%= inbox.created_at.strftime('%m/%b/%Y, %H:%M:%S')%>
