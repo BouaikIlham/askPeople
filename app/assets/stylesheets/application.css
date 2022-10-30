@@ -42,3 +42,8 @@ a {
   padding: 6px;
   margin-bottom: 6px;
 }
+
+.messages {
+  border: 2px solid;
+  padding: 10px;
+}

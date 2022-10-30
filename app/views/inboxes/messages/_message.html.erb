@@ -1,4 +1,5 @@
-<div id="<%= dom_id message %>">
+<div class="messages" id="<%= dom_id message %>">
+  <%= message.id%>
   <p>
     <strong>Body:</strong>
     <%= message.body %>
@@ -9,11 +10,14 @@
     <%= link_to message.inbox.name, message.inbox  %>
   </p>
 
-  <%= button_to 'UpVote', [:upvote, message.inbox, message], method: :patch, data: {turbo: 'false'} %>
-  <%= message.votes_for.size%>
-  <%= current_user.voted_for? message %>
-  <%= message.get_upvotes.size %>
-  <%= message.get_downvotes.size %>
+  <%= button_to 'UpVote', [:upvote, message.inbox, message], method: :patch%>
+  <%=  message.cached_votes_total %>
+  <%=  message.cached_votes_score %>
+  <%=  message.cached_votes_up %>
+  <%=  message.cached_votes_down %>
+  <%=  message.cached_weighted_score %>
+  <%=  message.cached_weighted_total %>
+  <%=  message.cached_weighted_average %>
 
 
   <p>
