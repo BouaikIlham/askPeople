@@ -1,6 +1,6 @@
 class InboxesController < ApplicationController
   before_action :set_inbox, only: %i[show edit update destroy]
-
+  before_action :authorize_inbox, only: %i[edit update destroy]
   # GET /inboxes or /inboxes.json
   def index
     @inboxes = Inbox.all
@@ -15,7 +15,8 @@ class InboxesController < ApplicationController
   end
 
   # GET /inboxes/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /inboxes or /inboxes.json
   def create
@@ -45,13 +46,16 @@ class InboxesController < ApplicationController
   # DELETE /inboxes/1 or /inboxes/1.json
   def destroy
     @inbox.destroy
-
     respond_to do |format|
       format.html { redirect_to inboxes_url, notice: 'Inbox was successfully destroyed.' }
     end
   end
 
   private
+
+  def authorize_inbox
+    authorize @inbox
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_inbox
