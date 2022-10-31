@@ -71,9 +71,10 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'acts_as_votable'
 gem 'devise'
 gem 'faker', '~> 2.23'
-gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'acts_as_votable'
 gem 'friendly_id', '~> 5.4.0'
-gem "pundit", "~> 2.2"
+gem 'meta-tags'
+gem 'pundit', '~> 2.2'
+gem 'rubocop', '>= 1.0', '< 2.0'

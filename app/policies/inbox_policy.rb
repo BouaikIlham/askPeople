@@ -9,5 +9,5 @@ class InboxPolicy < ApplicationPolicy
 
   def destroy?
     edit?
-end
+  end
 end

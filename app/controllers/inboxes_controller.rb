@@ -3,20 +3,23 @@ class InboxesController < ApplicationController
   before_action :authorize_inbox, only: %i[edit update destroy]
   # GET /inboxes or /inboxes.json
   def index
+    set_meta_tags title: 'Inboxes'
     @inboxes = Inbox.all
   end
 
   # GET /inboxes/1 or /inboxes/1.json
-  def show; end
+  def show
+    set_meta_tags title: @inbox.name
+  end
 
   # GET /inboxes/new
   def new
+    set_meta_tags title: 'Add new inbox'
     @inbox = Inbox.new
   end
 
   # GET /inboxes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /inboxes or /inboxes.json
   def create

@@ -5,7 +5,5 @@ class Message < ApplicationRecord
   validates :body, uniqueness: { scope: :inbox_id }
   validates :body, length: { in: 6..1000 }
 
-
   acts_as_votable
-
 end
