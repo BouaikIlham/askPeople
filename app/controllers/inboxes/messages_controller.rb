@@ -20,13 +20,14 @@ class Inboxes::MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.turbo_stream do
-          render turbo_stream:
+          render turbo_stream: [
           turbo_stream.update('new_message',
                                partial: 'inboxes/messages/form',
-                               locals: {message: Message.new})
-          format.html { redirect_to @inbox, notice: 'Message was successfully created.' }   
+                               locals: {message: Message.new}),
+          turbo_stream.update('message_counter', @inbox.messages_count)                    
+          ]
         end
-        format.html { redirect_to @inbox, notice: 'Message was successfully created.' }
+          format.html { redirect_to @inbox, notice: 'Message was successfully created.' }   
       else 
         format.turbo_stream do
           render turbo_stream:
