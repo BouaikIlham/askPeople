@@ -1,8 +1,5 @@
 class Inboxes::MessagesController < ApplicationController
   before_action :set_inbox
-  def new
-    @message = @inbox.messages.new
-  end
 
   def upvote
     @message = @inbox.messages.find(params[:id])

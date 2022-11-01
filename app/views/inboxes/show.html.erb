@@ -18,8 +18,6 @@
   <%= Time.zone.now%>
   <%= render 'inboxes/messages/form', message: Message.new%>
 </div>
-<%= link_to "New message", [:new, @inbox, :message]%>
-<%# <%= link_to "New message",  new_inbox_message_path(@inbox)%>
 
 <%= render partial: 'inboxes/messages/message', collection: @inbox.messages%>
 
