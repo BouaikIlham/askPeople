@@ -12,7 +12,7 @@ class Message < ApplicationRecord
     if user.voted_up_on? self, vote_scope: 'like'
       unvote_by user, vote_scope: 'like'
     else
-      unvote_by user, vote_scope: 'like'
+      upvote_by user, vote_scope: 'like'
     end
   end
 end
