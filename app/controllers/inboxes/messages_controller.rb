@@ -8,6 +8,8 @@ class Inboxes::MessagesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
+          turbo_stream.update('flash',
+                               partial: 'shared/flash'),
           turbo_stream.replace(@message,
                               partial: 'inboxes/messages/message',
                               locals: {message: @message})
@@ -21,7 +23,10 @@ class Inboxes::MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.turbo_stream do
+          flash.now[:notice] = "Message #{@message.body} created!!"
           render turbo_stream: [
+          turbo_stream.update('flash',
+                               partial: 'shared/flash'),
           turbo_stream.update('new_message',
                                partial: 'inboxes/messages/form',
                                locals: {message: Message.new}),
@@ -31,13 +36,17 @@ class Inboxes::MessagesController < ApplicationController
                                locals: {message: @message})
           ]
         end
-          format.html { redirect_to @inbox, notice: 'Message was successfully created.' }   
+          format.html { redirect_to @inbox}   
       else 
         format.turbo_stream do
-          render turbo_stream:
+          flash.now[:alert] = "Somthing worng!!"
+          render turbo_stream: [
+          turbo_stream.update('flash',
+                               partial: 'shared/flash'),
           turbo_stream.update('new_message',
                                partial: 'inboxes/messages/form',
                                locals: {message: @message})
+          ]
           format.html { render :new, status: :unprocessable_entity }
         end
       end
@@ -49,12 +58,15 @@ class Inboxes::MessagesController < ApplicationController
     @message.destroy
     respond_to do |format|
       format.turbo_stream do
+        flash.now[:notice] = "Message #{@message.body} destroyed !!"
         render turbo_stream: [
+          turbo_stream.update('flash',
+                               partial: 'shared/flash'),
           turbo_stream.remove(@message),
           turbo_stream.update('message_counter', @inbox.messages_count),
         ]
       end
-      format.html { redirect_to @inbox, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to @inbox}
     end
   end
 
