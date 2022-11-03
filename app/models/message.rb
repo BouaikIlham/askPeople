@@ -7,7 +7,6 @@ class Message < ApplicationRecord
 
   acts_as_votable
 
-
   def upvote!(user)
     if user.voted_up_on? self, vote_scope: 'like'
       unvote_by user, vote_scope: 'like'
