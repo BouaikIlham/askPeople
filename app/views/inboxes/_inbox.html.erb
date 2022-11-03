@@ -1,7 +1,30 @@
-<div id="<%= dom_id inbox %>">
+<div id="<%= dom_id inbox %>" style =  "background-color:   <%= inbox.color%>
+">
   <h1>
     <strong>Name:</strong>
     <%= inbox.name %>
   </h1>
+
+  <div>
+  <%= link_to "Edit", edit_inbox_path(@inbox) if policy(@inbox).edit?  %> 
+  <%= link_to "Back to inboxes", inboxes_path %>
+
+  <%= button_to "Destroy", @inbox, method: :delete if policy(@inbox).destroy? %>
+  </div>
+
+  <hr>
+
+ <h1>
+  Messages
+    <span id="message_counter">  
+        <%= @inbox.messages_count%>
+    </span>
+ </h1>
+    by: 
+    <%= inbox.user.email%>
+    on:
+    <%= inbox.created_at.strftime('%m/%b/%Y, %H:%M:%S')%>
+
+
 
 </div>

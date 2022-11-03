@@ -67,6 +67,6 @@ class InboxesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def inbox_params
-    params.require(:inbox).permit(:name)
+    params.require(:inbox).permit(:name, :color)
   end
 end
