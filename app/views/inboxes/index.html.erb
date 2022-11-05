@@ -2,15 +2,28 @@
   <h1>
     inboxes: <%= @inboxes.count%>
   </h1>
+<%= search_form_for @q, html: { autocomplete: "off" }  do |f| %>
+<%= f.label :name_cont %>
+<%= f.search_field :name_cont %>
+<%= f.submit %>
+<% end %>
+<%= sort_link(@q, :name) %>
+<%= sort_link(@q, :created_at) %>
+<%= sort_link(@q, :messages_count) %>
+
+<%= link_to "Clear search", request.path if request.query_parameters.any?%>
+
+
   <% @inboxes.each do |inbox| %>
     <h3>
       <%= link_to inbox.name , inbox%>
     </h3>
      Messages: <%= inbox.messages_count%>
-    <hr>
     by: 
     <%= inbox.user.email%>
     on:
     <%= inbox.created_at.strftime('%m/%b/%Y, %H:%M:%S')%>
+    <hr>
   <% end %>
 </div>
+

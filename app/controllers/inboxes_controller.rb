@@ -4,7 +4,8 @@ class InboxesController < ApplicationController
   # GET /inboxes or /inboxes.json
   def index
     set_meta_tags title: 'Inboxes'
-    @inboxes = Inbox.all
+     @q = Inbox.ransack(params[:q])
+     @inboxes = @q.result(distinct: true).order(created_at: :desc)
   end
 
   # GET /inboxes/1 or /inboxes/1.json

@@ -80,3 +80,4 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection' # for omniauth 2.0
 gem 'pundit', '~> 2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'ransack'
