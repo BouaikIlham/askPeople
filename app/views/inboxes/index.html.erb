@@ -7,13 +7,14 @@
 <%= f.search_field :name_cont %>
 <%= f.submit %>
 <% end %>
+
+
+<%= turbo_frame_tag 'search' do%>
 <%= sort_link(@q, :name) %>
 <%= sort_link(@q, :created_at) %>
 <%= sort_link(@q, :messages_count) %>
 
 <%= link_to "Clear search", request.path if request.query_parameters.any?%>
-
-
   <% @inboxes.each do |inbox| %>
     <h3>
       <%= link_to inbox.name , inbox%>
@@ -26,4 +27,4 @@
     <hr>
   <% end %>
 </div>
-
+<% end %>
