@@ -7,11 +7,11 @@ class Message < ApplicationRecord
 
   acts_as_votable
 
-    enum status: {
-    incoming: "incoming",
-    todo: "todo",
-    done: "done",
-    spam: "spam"
+  enum status: {
+    incoming: 'incoming',
+    todo: 'todo',
+    done: 'done',
+    spam: 'spam'
   }
 
   def upvote!(user)

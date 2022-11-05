@@ -76,7 +76,7 @@ gem 'devise'
 gem 'faker', '~> 2.23'
 gem 'friendly_id', '~> 5.4.0'
 gem 'meta-tags'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-rails_csrf_protection' # for omniauth 2.0
 gem 'pundit', '~> 2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-gem "omniauth-rails_csrf_protection" # for omniauth 2.0

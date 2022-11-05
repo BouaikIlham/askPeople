@@ -10,8 +10,8 @@ class Inboxes::MessagesController < ApplicationController
         render turbo_stream: [
           render_turbo_flash,
           turbo_stream.replace(@message,
-                              partial: 'inboxes/messages/message', 
-                              locals: { message: @message })
+                               partial: 'inboxes/messages/message',
+                               locals: { message: @message })
         ]
       end
     end

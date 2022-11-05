@@ -7,10 +7,10 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data = access_token.info
-    user = User.where(email: data["email"]).first
+    user = User.where(email: data['email']).first
 
     user ||= User.create(
-      email: data["email"],
+      email: data['email'],
       password: Devise.friendly_token[0, 20]
     )
 
@@ -24,7 +24,6 @@ class User < ApplicationRecord
   end
   has_many :inboxes, dependent: :destroy
   has_many :messages, through: :inboxes, dependent: :destroy
-
 
   acts_as_voter
 end
